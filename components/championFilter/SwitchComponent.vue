@@ -8,10 +8,8 @@
       :checked="filterClone.favorite"
       @change="
         changeFilter({
-          favorites: !filter.favorites,
-          lane: filter.lane,
-          difficulty: filter.difficulty,
-          championName: filter.championName,
+          ...filter,
+          favorites: !filterClone.favorite,
         })
       "
       v-model="filterClone.favorite"

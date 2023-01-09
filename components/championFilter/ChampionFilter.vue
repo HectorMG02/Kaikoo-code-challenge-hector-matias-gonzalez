@@ -15,13 +15,8 @@
       ></input-selector>
     </div>
 
-    <div class="ml-7">
-      <input-selector
-        :difficulties="championNames"
-        :filter="filter"
-        :changeFilter="changeFilter"
-        :placeholder="'Search Champion'"
-      ></input-selector>
+    <div>
+      <text-input :filter="filter" :changeFilter="changeFilter"></text-input>
     </div>
 
     <div class="ml-7">
@@ -37,9 +32,10 @@
 import InputSelector from "./InputSelector.vue";
 import LanesFilter from "./LanesFilter.vue";
 import SwitchComponent from "./SwitchComponent.vue";
+import TextInput from "./TextInput.vue";
 
 export default {
-  components: { LanesFilter, InputSelector, SwitchComponent },
+  components: { LanesFilter, InputSelector, SwitchComponent, TextInput },
   props: ["lanes", "difficulties", "championNames", "filter", "changeFilter"],
 };
 </script>

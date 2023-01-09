@@ -10,10 +10,8 @@
       }"
       @click="
         changeFilter({
+          ...filter,
           lane,
-          difficulty: filter.difficulty,
-          championName: filter.championName,
-          favorites: filter.favorites,
         })
       "
     >

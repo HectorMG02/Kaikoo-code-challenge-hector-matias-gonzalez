@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute left-0 top-1 -ml-2 mt-2 py-1 px-2">
+  <div class="absolute left-0 top-1 -ml-2 mt-2 py-1 px-2 hover:cursor-pointer">
     <img
       v-for="(lane, index) in lanes"
       :key="index + lane"

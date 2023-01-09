@@ -58,8 +58,8 @@ export default {
     };
   },
   methods: {
-    changeFilter({ lane, difficulty, championName, favorites }) {
-      this.filter = { lane, difficulty, championName, favorites };
+    changeFilter(params) {
+      this.filter = params;
 
       this.filteredChampions = this.allChampions.filter((champion) => {
         if (this.filter.lane !== "fill") {
@@ -76,8 +76,9 @@ export default {
 
         if (this.filter.championName !== "") {
           if (
-            !champion.name.toLowerCase() !==
-            this.filter.championName.toLowerCase()
+            !champion.name
+              .toLowerCase()
+              .includes(this.filter.championName.toLowerCase())
           ) {
             return false;
           }

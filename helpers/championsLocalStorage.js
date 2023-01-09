@@ -19,7 +19,6 @@ const checkChampionIsFavorite = ({ nameId }) => {
     );
 
     const { nameId } = champion;
-    console.log({nameId})
 
     if (!favoriteChampions) {
       localStorage.setItem(
