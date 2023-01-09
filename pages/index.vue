@@ -1,5 +1,9 @@
 <template>
-  <h1>Kaikoo</h1>
+  <div class="grid grid-cols-5 m-10">
+    <div class="col-span-1" v-for="champion in champions" :key="champion.id">
+      <champion-card :champion="champion"></champion-card>
+    </div>
+  </div>
 </template>
 
 <script>
