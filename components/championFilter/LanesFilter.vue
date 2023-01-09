@@ -3,7 +3,7 @@
     <div
       v-for="(lane, index) in lanes"
       :key="index + lane"
-      class="w-12 h-12 flex justify-center items-center duration-300 cursor-pointer border border-card-border"
+      class="w-12 h-12 flex justify-center items-center duration-300 cursor-pointer border border-card-border rounded-sm"
       :class="{
         'bg-indigo-500': lane === filter.lane,
         'bg-filter-dark': lane !== filter.lane,

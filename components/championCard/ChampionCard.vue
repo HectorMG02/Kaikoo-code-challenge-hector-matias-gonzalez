@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative card m-1 border-2 text-white cursor-pointer bg-card-bg"
+    class="relative card m-1 border-2 text-white cursor-pointer rounded-sm bg-card-bg"
     :class="borderColor"
     @mouseover="addHoverClass"
     @mouseleave="removeHoverClass"

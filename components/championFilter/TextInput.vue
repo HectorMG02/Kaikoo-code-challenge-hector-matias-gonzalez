@@ -8,7 +8,11 @@
     <input
       id="search"
       type="text"
-      class="form-input py-3 pl-10 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 text-gray-300 leading-5 bg-filter-dark"
+      class="form-input py-3 pl-10 block transition duration-150 ease-in-out sm:text-sm sm:leading-5 text-gray-300 leading-5 bg-filter-dark focus:w-full hover:w-full rounded-sm"
+      :class="{
+        'w-10': filterClone.championName === '',
+        'w-full': filterClone.championName !== '',
+      }"
       placeholder="Search champion"
       v-model="filterClone.championName"
       @keydown="onKeyDown"
