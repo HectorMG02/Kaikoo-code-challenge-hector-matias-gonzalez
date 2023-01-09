@@ -1,7 +1,19 @@
 <template>
-  <div class="grid grid-cols-5 m-10">
-    <div class="col-span-1" v-for="champion in champions" :key="champion.id">
-      <champion-card :champion="champion"></champion-card>
+  <div class="content container w-full mx-auto my-5">
+    <h2 class="text-3xl font-bold text-white mb-8">Champions</h2>
+    <champion-filter
+      :lanes="lanes"
+      :filter="filter"
+      :changeFilter="changeFilter"
+    ></champion-filter>
+    <div class="grid grid-cols-5">
+      <div
+        class="col-span-1"
+        v-for="champion in filteredChampions"
+        :key="champion.id"
+      >
+        <champion-card :champion="champion"></champion-card>
+      </div>
     </div>
   </div>
 </template>
@@ -14,25 +26,55 @@ export default {
       "https://back.kaikoo.pro:8888/api/champions"
     );
 
-    const parseUrlName = (name) => {
-      return name.replace(/[' ]/g, "").split(" ").join("");
-    };
-
     response.forEach((champion) => {
-      champion.img = `https://cdn.communitydragon.org/latest/champion/${parseUrlName(
-        champion.name
-      )}/square`;
-      champion.backgroundImg = `https://cdn.communitydragon.org/latest/champion/${parseUrlName(
-        champion.name
-      )}/splash-art/centered`;
+      champion.img = `https://cdn.communitydragon.org/latest/champion/${champion.nameId}/square`;
+      champion.backgroundImg = `https://cdn.communitydragon.org/latest/champion/${champion.nameId}/splash-art/centered`;
     });
 
-    return { champions: response };
+    return { filteredChampions: response, allChampions: response };
   },
   data() {
     return {
-      champions: [],
+      allChampions: [],
+      filteredChampions: [],
+      lanes: ["fill", "top", "jungle", "middle", "bottom", "utility"],
+      filter: {
+        lane: "fill",
+        difficulty: "",
+        championName: "",
+      },
     };
+  },
+  methods: {
+    changeFilter({ lane, difficulty, championName }) {
+      this.filter = { lane, difficulty, championName };
+
+      this.filteredChampions = this.allChampions.filter((champion) => {
+        if (this.filter.lane !== "fill") {
+          if (!champion.lanes.includes(this.filter.lane.toUpperCase())) {
+            return false;
+          }
+        }
+
+        if (this.filter.difficulty !== "") {
+          if (champion.difficulty !== this.filter.difficulty) {
+            return false;
+          }
+        }
+
+        if (this.filter.championName !== "") {
+          if (
+            !champion.name
+              .toLowerCase()
+              .includes(this.filter.championName.toLowerCase())
+          ) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+    },
   },
 };
 </script>

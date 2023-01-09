@@ -55,8 +55,7 @@ export default {
 
       this.$el.style.backgroundPosition = "center";
       this.$el.style.backgroundRepeat = "no-repeat";
-      this.$el.style.backgroundBlendMode = "multiply";
-      this.$el.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+      this.$el.style.backgroundBlendMode = "soft-light";
 
       this.borderColor = "border-indigo-500";
       this.imgBorderColor = "border-indigo-500";
