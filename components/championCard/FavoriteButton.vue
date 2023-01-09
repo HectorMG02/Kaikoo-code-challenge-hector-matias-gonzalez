@@ -20,10 +20,11 @@
 import { toggleFavorite } from "../../helpers/championsLocalStorage";
 
 export default {
-  props: ["champion"],
+  props: ["champion", "changeFilter", "filter"],
   methods: {
     toggleFavorite(champion) {
       toggleFavorite(champion);
+      this.changeFilter(this.filter);
     },
   },
 };

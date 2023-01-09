@@ -17,7 +17,11 @@
       ></champion-image>
 
       <p class="font-bold text-xl mt-4">
-        <favorite-button :champion="champion"></favorite-button>
+        <favorite-button
+          :champion="champion"
+          :changeFilter="changeFilter"
+          :filter="filter"
+        ></favorite-button>
         {{ champion.name }}
       </p>
 
@@ -69,6 +73,6 @@ export default {
       this.imgBorderColor = "border-indigo-300";
     },
   },
-  props: ["champion"],
+  props: ["champion", "changeFilter", "filter"],
 };
 </script>

@@ -14,7 +14,11 @@
         v-for="champion in filteredChampions"
         :key="champion.id"
       >
-        <champion-card :champion="champion"></champion-card>
+        <champion-card
+          :champion="champion"
+          :changeFilter="changeFilter"
+          :filter="filter"
+        ></champion-card>
       </div>
     </div>
   </div>
@@ -54,8 +58,8 @@ export default {
     };
   },
   methods: {
-    changeFilter({ lane, difficulty, championName }) {
-      this.filter = { lane, difficulty, championName };
+    changeFilter({ lane, difficulty, championName, favorites }) {
+      this.filter = { lane, difficulty, championName, favorites };
 
       this.filteredChampions = this.allChampions.filter((champion) => {
         if (this.filter.lane !== "fill") {
@@ -75,6 +79,12 @@ export default {
             !champion.name.toLowerCase() !==
             this.filter.championName.toLowerCase()
           ) {
+            return false;
+          }
+        }
+
+        if (this.filter.favorites) {
+          if (!checkChampionIsFavorite(champion)) {
             return false;
           }
         }

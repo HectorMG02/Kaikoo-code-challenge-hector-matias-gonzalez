@@ -18,18 +18,21 @@ const checkChampionIsFavorite = ({ nameId }) => {
       localStorage.getItem("favoriteChampions")
     );
 
+    const { nameId } = champion;
+    console.log({nameId})
+
     if (!favoriteChampions) {
       localStorage.setItem(
         "favoriteChampions",
-        JSON.stringify([champion.nameId])
+        JSON.stringify([nameId])
       );
       champion.isFavorite = true;
       return;
     }
 
-    if (favoriteChampions.includes(champion.nameId)) {
+    if (favoriteChampions.includes(nameId)) {
       const newFavoriteChampions = favoriteChampions.filter(
-        (champion) => champion !== champion.nameId
+        (champion) => champion !== nameId
       );
 
       localStorage.setItem(
@@ -41,7 +44,7 @@ const checkChampionIsFavorite = ({ nameId }) => {
     } else {
       localStorage.setItem(
         "favoriteChampions",
-        JSON.stringify([...favoriteChampions, champion.nameId])
+        JSON.stringify([...favoriteChampions, nameId])
       );
 
       champion.isFavorite = true;
