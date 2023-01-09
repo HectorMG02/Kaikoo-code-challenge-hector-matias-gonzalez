@@ -1,5 +1,13 @@
 <template>
   <div class="relative card m-1 border-2 border-slate-500 text-white">
+    <div class="absolute left-0 top-1 -ml-2 -mt-2 difficulty-bg py-1 px-2">
+      <img
+        v-for="(lane, index) in champion.lanes"
+        :key="index + lane"
+        class="px-2 py-1 rounded-full h-9 w-9"
+        :src="require(`~/assets/images/lanes/${lane}.svg`)"
+      />
+    </div>
     <div
       class="absolute right-0 top-1 difficulty-bg py-1 px-2 bg-indigo-900 bg-opacity-75"
     >
@@ -11,7 +19,7 @@
       <div class="overflow-hidden w-16 h-16 custom-border rounded-full">
         <img
           v-bind:src="championImage"
-          class="w-full h-full transform rounded-full border-4 border-indigo-300"
+          class="w-full h-full transform rounded-full border-2 border-indigo-500"
         />
       </div>
       <p class="font-bold text-xl mt-4">
