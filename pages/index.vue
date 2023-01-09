@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { checkChampionIsFavorite } from "../helpers/championsLocalStorage";
+
 export default {
   name: "IndexPage",
   async asyncData({ $axios }) {
@@ -31,6 +33,8 @@ export default {
     response.forEach((champion) => {
       champion.img = `https://cdn.communitydragon.org/latest/champion/${champion.nameId}/square`;
       champion.backgroundImg = `https://cdn.communitydragon.org/latest/champion/${champion.nameId}/splash-art/centered`;
+
+      champion.isFavorite = checkChampionIsFavorite(champion);
     });
 
     return { filteredChampions: response, allChampions: response };
