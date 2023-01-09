@@ -17,6 +17,21 @@
       ></champion-image>
 
       <p class="font-bold text-xl mt-4">
+        <button class="text-xs" @click="toggleFavorite(champion)">
+          <img
+            v-if="isFavorite"
+            src="https://img.icons8.com/color/512/filled-star.png"
+            alt="heart"
+            class="w-4 h-4"
+          />
+
+          <img
+            v-else
+            src="https://img.icons8.com/color/512/000000/star--v1.png"
+            alt="heart"
+            class="w-4 h-4"
+          />
+        </button>
         {{ champion.name }}
       </p>
 
@@ -46,6 +61,7 @@ export default {
     return {
       borderColor: "border-card-border",
       imgBorderColor: "border-indigo-300",
+      isFavorite: this.checkChampionIsFavorite(this.champion),
     };
   },
   methods: {
@@ -66,6 +82,50 @@ export default {
 
       this.borderColor = "border-card-border";
       this.imgBorderColor = "border-indigo-300";
+    },
+    checkChampionIsFavorite({ nameId }) {
+      const favoriteChampions = JSON.parse(
+        localStorage.getItem("favoriteChampions")
+      );
+
+      if (favoriteChampions) {
+        if (favoriteChampions.includes(nameId)) {
+          return true;
+        }
+      }
+
+      return false;
+    },
+    toggleFavorite({ nameId }) {
+      const favoriteChampions = JSON.parse(
+        localStorage.getItem("favoriteChampions")
+      );
+
+      if (!favoriteChampions) {
+        localStorage.setItem("favoriteChampions", JSON.stringify([nameId]));
+        this.isFavorite = true;
+        return;
+      }
+
+      if (favoriteChampions.includes(nameId)) {
+        const newFavoriteChampions = favoriteChampions.filter(
+          (champion) => champion !== nameId
+        );
+
+        localStorage.setItem(
+          "favoriteChampions",
+          JSON.stringify(newFavoriteChampions)
+        );
+
+        this.isFavorite = false;
+      } else {
+        localStorage.setItem(
+          "favoriteChampions",
+          JSON.stringify([...favoriteChampions, nameId])
+        );
+
+        this.isFavorite = true;
+      }
     },
   },
   props: ["champion"],

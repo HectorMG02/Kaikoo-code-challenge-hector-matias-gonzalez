@@ -9,15 +9,15 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.7",
+    "@heroicons/vue": "^2.0.13",
     "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/vuetify": "^1.12.3",
     "axios": "^1.2.2",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10",
-    "vuetify": "^2.6.13"
+    "vue-template-compiler": "^2.7.10"
   },
   "devDependencies": {
     "@nuxt/postcss8": "^1.1.3",

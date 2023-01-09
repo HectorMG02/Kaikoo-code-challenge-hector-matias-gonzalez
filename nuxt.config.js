@@ -1,5 +1,3 @@
-import vuetify from 'vuetify'
-
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -34,7 +32,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/tailwindcss", "@nuxt/postcss8", "@nuxtjs/vuetify"],
+  buildModules: ["@nuxtjs/tailwindcss", "@nuxt/postcss8"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

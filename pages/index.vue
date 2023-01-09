@@ -4,6 +4,7 @@
     <champion-filter
       :lanes="lanes"
       :difficulties="difficulties"
+      :championNames="allChampions.map((champion) => champion.name)"
       :filter="filter"
       :changeFilter="changeFilter"
     ></champion-filter>
@@ -44,6 +45,7 @@ export default {
         lane: "fill",
         difficulty: "",
         championName: "",
+        favorites: false,
       },
     };
   },

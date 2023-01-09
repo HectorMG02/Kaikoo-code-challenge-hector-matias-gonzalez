@@ -14,6 +14,7 @@ module.exports = {
         "difficulty": "#3B3B55",
         "card-border": "#373751",
         "card-bg": "#2C2D43",
+        "filter-dark": "#454563"
       }
     }
   },

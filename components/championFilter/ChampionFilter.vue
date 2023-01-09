@@ -6,11 +6,23 @@
       :changeFilter="changeFilter"
     ></lanes-filter>
 
-    <input-selector
-      :difficulties="difficulties"
-      :filter="filter"
-      :changeFilter="changeFilter"
-    ></input-selector>
+    <div class="ml-5">
+      <input-selector
+        :difficulties="difficulties"
+        :filter="filter"
+        :changeFilter="changeFilter"
+        :placeholder="'Difficulty'"
+      ></input-selector>
+    </div>
+
+    <div class="ml-5">
+      <input-selector
+        :difficulties="championNames"
+        :filter="filter"
+        :changeFilter="changeFilter"
+        :placeholder="'Search Champion'"
+      ></input-selector>
+    </div>
   </div>
 </template>
 
@@ -19,6 +31,6 @@ import InputSelector from "./InputSelector.vue";
 import LanesFilter from "./LanesFilter.vue";
 export default {
   components: { LanesFilter, InputSelector },
-  props: ["lanes", "difficulties", "filter", "changeFilter"],
+  props: ["lanes", "difficulties", "championNames", "filter", "changeFilter"],
 };
 </script>

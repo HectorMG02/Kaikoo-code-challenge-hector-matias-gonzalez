@@ -6,7 +6,7 @@
       class="w-12 h-12 flex justify-center items-center duration-300 cursor-pointer border border-card-border"
       :class="{
         'bg-indigo-500': lane === filter.lane,
-        'bg-card-bg': lane !== filter.lane,
+        'bg-filter-dark': lane !== filter.lane,
       }"
       @click="
         changeFilter({
