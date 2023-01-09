@@ -5,7 +5,7 @@
     @mouseover="addHoverClass"
     @mouseleave="removeHoverClass"
   >
-    <champion-lanes :champion-lanes="champion.lanes"></champion-lanes>
+    <champion-lanes :lanes="champion.lanes"></champion-lanes>
     <champion-difficulty
       :champion-difficulty="champion.difficulty"
     ></champion-difficulty>

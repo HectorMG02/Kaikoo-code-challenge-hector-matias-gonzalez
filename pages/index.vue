@@ -64,9 +64,8 @@ export default {
 
         if (this.filter.championName !== "") {
           if (
-            !champion.name
-              .toLowerCase()
-              .includes(this.filter.championName.toLowerCase())
+            !champion.name.toLowerCase() !==
+            this.filter.championName.toLowerCase()
           ) {
             return false;
           }
