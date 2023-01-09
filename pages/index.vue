@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <h1>Kaikoo</h1>
+</template>
 
 <script>
 export default {
