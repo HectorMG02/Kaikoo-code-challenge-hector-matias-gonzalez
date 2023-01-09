@@ -3,6 +3,7 @@
     <h2 class="text-3xl font-bold text-white mb-8">Champions</h2>
     <champion-filter
       :lanes="lanes"
+      :difficulties="difficulties"
       :filter="filter"
       :changeFilter="changeFilter"
     ></champion-filter>
@@ -38,6 +39,7 @@ export default {
       allChampions: [],
       filteredChampions: [],
       lanes: ["fill", "top", "jungle", "middle", "bottom", "utility"],
+      difficulties: ["easy", "average", "hard", "severe"],
       filter: {
         lane: "fill",
         difficulty: "",
