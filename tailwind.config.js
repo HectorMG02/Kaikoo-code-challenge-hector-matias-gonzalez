@@ -9,8 +9,11 @@ module.exports = {
     "./nuxt.config.{js,ts}",
   ],
   theme: {
-    colors: {
-      "bg-difficulty": rgba(62,62,90,.8)
+    extend: {
+      colors: {
+        "difficulty": "#3B3B55",
+        "card-border": "#373751",
+      }
     }
   },
   plugins: [],

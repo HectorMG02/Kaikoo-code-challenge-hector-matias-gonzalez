@@ -1,5 +1,5 @@
 <template>
-  <div class="relative card m-1 border-2 border-slate-500 text-white">
+  <div class="relative card m-1 border-2 border-card-border text-white">
     <champion-lanes :champion-lanes="champion.lanes"></champion-lanes>
     <champion-difficulty
       :champion-difficulty="champion.difficulty"
@@ -12,7 +12,7 @@
         {{ champion.name }}
       </p>
 
-      <p class="text-grey font-normal text-gray-500 text-sm mb-4">
+      <p class="text-grey font-normal text-gray-400 text-sm mb-4">
         {{ champion.description_en }}
       </p>
 

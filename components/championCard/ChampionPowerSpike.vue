@@ -1,6 +1,6 @@
 <template>
   <div class="text-center mx-1 text-sm">
-    <p class="leading-4 mb-1">{{ getStage(spikeIndex) }}</p>
+    <p class="leading-4 text-gray-400 mb-1">{{ getStage(spikeIndex) }}</p>
     <div class="w-16 h-1 rounded" :class="getStageColor(spike)"></div>
   </div>
 </template>
