@@ -8,10 +8,9 @@
 
     <div>
       <input-selector
-        :difficulties="difficulties"
         :filter="filter"
+        :options="difficulties"
         :changeFilter="changeFilter"
-        :placeholder="'Difficulty'"
       ></input-selector>
     </div>
 
@@ -37,5 +36,10 @@ import TextInput from "./TextInput.vue";
 export default {
   components: { LanesFilter, InputSelector, SwitchComponent, TextInput },
   props: ["lanes", "difficulties", "championNames", "filter", "changeFilter"],
+  data() {
+    return {
+      filterClone: this.filter,
+    };
+  },
 };
 </script>

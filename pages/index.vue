@@ -69,7 +69,10 @@ export default {
         }
 
         if (this.filter.difficulty !== "") {
-          if (champion.difficulty !== this.filter.difficulty) {
+          if (
+            champion.difficulty.toLowerCase() !==
+            this.filter.difficulty.toLowerCase()
+          ) {
             return false;
           }
         }
