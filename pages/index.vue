@@ -9,13 +9,24 @@
 <script>
 export default {
   name: "IndexPage",
-
   async asyncData({ $axios }) {
     const response = await $axios.$get(
       "https://back.kaikoo.pro:8888/api/champions"
     );
 
-    console.log({ response }, response[0].name);
+    const parseUrlName = (name) => {
+      return name.replace(/[' ]/g, "").split(" ").join("");
+    };
+
+    response.forEach((champion) => {
+      champion.img = `https://cdn.communitydragon.org/latest/champion/${parseUrlName(
+        champion.name
+      )}/square`;
+      champion.backgroundImg = `https://cdn.communitydragon.org/latest/champion/${parseUrlName(
+        champion.name
+      )}/splash-art/centered`;
+    });
+
     return { champions: response };
   },
   data() {
