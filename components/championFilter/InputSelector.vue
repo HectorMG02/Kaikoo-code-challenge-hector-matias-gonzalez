@@ -33,13 +33,15 @@
         :key="index + option"
         class="w-full cursor-pointer text-white pl-4 py-2 hover:bg-[#2b2a3b]"
       >
-        {{ option.charAt(0).toUpperCase() + option.slice(1) }}
+        {{ capitalize(option) }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import capitalize from "../../helpers/capitalize";
+
 export default {
   data() {
     return {
@@ -48,11 +50,14 @@ export default {
     };
   },
   methods: {
+    capitalize(str) {
+      return capitalize(str);
+    },
     toggle() {
       this.isOpen = !this.isOpen;
     },
     select(option) {
-      this.selected = option.charAt(0).toUpperCase() + option.slice(1);
+      this.selected = capitalize(option);
       this.$emit("input", option);
       this.isOpen = false;
 
