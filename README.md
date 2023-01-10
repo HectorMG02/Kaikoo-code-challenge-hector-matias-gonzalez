@@ -10,33 +10,15 @@ $ npm install
 $ npm run dev
 ```
 
-## Code Challenge
-En este Challenge, usarás **Nuxt.js** para maquetar el diseño de una página a partir de un diseño en Figma. El challenge será replicar una de las páginas de nuestra plataforma: https://lol.kaikoo.pro/champions (sin side-bar ni nav-bar, solo el contenido).
+## Detalles de la prueba
+Para realizar la prueba me he basado en Atomic Design para la creación de componentes de tal manera que sean reutilizables y escalables.
+Esta ha sido mi primera toma de contacto con Vue y con Nuxt.js por lo que, como dirían en el LOL, soy "**first time Nuxt**". He instalado eslint para tener un código más limpio y ordenado usando comillas dobles y punto y coma.
 
-### Descripción de la tarea
-· Haz una nueva página que al cargar realice una petición al backend para pedir los datos actualizados de todos los campeones de League of Legends. El endpoints es:
-```bash
-$ GET https://back.kaikoo.pro:8888/api/champions
-```
-· Pinta una Card para cada campeón con los datos de su JSON, incluyendo el efecto de hover, siguiendo el diseño que aparece en el figma:
+Para pintar las cards de los campeones he creado una variable llamada **filteredChampions** ya que no quería modificar la variable original con todos los campeones. Con esta variable he pintado las tarjetas intentando que el estilo se parezca lo máximo posible al de la vista de referencia y al figma.
 
-https://www.figma.com/file/EVwNS7MNeEujU5GUiTjfQ0/Prueba-de-nivel
+En cuanto a los filtros he usado la propiedad *.filter()* de los arrays para filtrar dentro del array filteredChampions.
 
-· Por último, añade una barra de filtrado para los campeones. Se puede filtrar por nombre, por posición y por dificultad. Los filtros tienen que aplicarse en tiempo real y pueden ser borrados en cualquier momento.
+En cuanto a la tarea adicional de añadir/eliminar campeones a favoritos he usado el localStorage para almacenar dichos datos ya que no conozco las alternativas que ofrece Vue para almacenar datos como en React (Redux, Context API, etc...).
 
-### Tarea opcional
-· Añade una funcionalidad para guardar campeones en favoritos. No te preocupes por el diseño, añade un botón en algún sitio dentro de la card para añadir/eliminar campeones de Favoritos. Añade también un filtro que muestre solo los campeones guardados en favoritos.
-
-
-## Instrucciones
-  · **NO QUEREMOS ROBARTE MUCHO TIEMPO.** No hace falta hacer over-engineering, haz simplemente lo que te pedimos de la mejor forma que sepas, del mismo modo que lo harías en tu día a día en nuestra empresa.
-
-  · No te preocupes de diseño responsive ni de dispositivos móviles.
-
-  · No hace falta hacer tests.
-
-  · Puedes usar Tailwind si lo prefieres.
-
-## Instrucciones para compartir tu solución
-Clona nuestro repositorio y súbelo a tu github como repositorio privado. Invita a nuestro CTO [Jose Pina](https://github.com/josepinaKaikoo) y a nuestro Frontend [Alejandro Maldonado](https://github.com/amaldonadokaikoo). De esta manera, podremos revisar tu código y tenerlo a mano para el siguiente paso: una entrevista personal 👻
+Dentro de los filtros destacar que el filtro de tipo texto funciona dándole a enter para buscar y si eliminas el texto automáticamente se actualiza la lista de campeones. El selector con input integrado funciona al igual que en la página de referencia.
 
