@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex shadow-sm ml-14">
+  <div class="relative flex shadow-sm ml-14 h-15 top-0.5">
     <div
       class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
     >
